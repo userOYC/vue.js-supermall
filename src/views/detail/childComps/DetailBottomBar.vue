@@ -11,10 +11,10 @@
         <div class="count">{{vuexStateCartlistLength}}</div>
         <span class="text">购物车</span>
       </div>
-      <div class="collect">
+      <div class="collect"  @click="textclick">
         <!-- <i class="icon select"  @click="textclick" ></i> -->
-        <img src="~assets/img/detail/collect.svg"  @click="textclick" alt=""  v-if="isActive">
-        <img src="~assets/img/detail/collect_active.svg"  @click="textclick" alt="" v-else>
+        <img src="~assets/img/detail/collect.svg"  alt=""  v-if="isActive">
+        <img src="~assets/img/detail/collect_active.svg"   alt="" v-else>
         <span class="text" >收藏</span>
       </div>
     </div>
@@ -27,6 +27,7 @@
 </template>
 
 <script>
+import { get } from 'vant/lib/utils'
 export default {
   name:'DetailBottomBar',
   
@@ -46,6 +47,13 @@ export default {
       this.$emit('joincart')
     },
     textclick(){ //收藏店铺
+    const ID = localStorage.getItem(JSON.stringify(ID)) || []
+    // console.log(Object.prototype.toString.call(ID))
+    console.log(ID)
+    ID.push(this.$parent.iid)
+    ID.push(this.$parent.iid)
+    console.log(ID)
+    localStorage.setItem("ID",ID)
       this.isActive = !this.isActive
       if(!this.isActive) {
          this.$toast({
@@ -53,9 +61,25 @@ export default {
            forbidClick: true,
            duration: 1500
         });
+      } else {
+        this.$toast({
+           message: `取消成功`,
+           forbidClick: true,
+           duration: 1500
+        });
       }
-    }
-  }
+    },
+  },
+  // mounted(){
+  //   let listId = localStorage.getItem("listId")
+  //   if(listId === this.$parent.iid) {
+  //     console.log('一样')
+  //   } else {
+  //     console.log('不一样')
+  //     console.log(this.$parent.iid)
+  //     console.log(listId)
+  //   }
+  // }
 }
  
 </script>

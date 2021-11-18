@@ -100,7 +100,6 @@ export default {
       this.recommends = res.data.list
     })
    },
-
    methods:{
      imageLoad(){ //当商品参数图片全部加载完之后再获取数据
       this.titletop = [] //先清空数组
@@ -153,6 +152,7 @@ export default {
             duration: 1500
           });
        })
+      //  console.log(cartshow)
      }
    },
 

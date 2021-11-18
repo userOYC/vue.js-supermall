@@ -7,7 +7,8 @@
   </div>
   <!-- 购物车中没数据 -->
   <div v-else class="elsecart">
-    <div class="elseimg"><img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2F0f9fcafc91fba37048f075319220261f54ae977e16686-tahVyj_fw658&refer=http%3A%2F%2Fhbimg.b0.upaiyun.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1622209517&t=a92fc822adf8929b672b9a680cfdc92e" alt=""></div>
+    <!-- <div class="elseimg"><img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2F0f9fcafc91fba37048f075319220261f54ae977e16686-tahVyj_fw658&refer=http%3A%2F%2Fhbimg.b0.upaiyun.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1622209517&t=a92fc822adf8929b672b9a680cfdc92e" alt=""></div> -->
+    <div class="elseimg"></div>
     <div class="empty">购物空空如也，快去选购中意好货吧~</div>
     <button  @click="$router.push('/category')">逛逛今日特卖</button>
   </div>
@@ -50,6 +51,9 @@ export default {
 .elsecart .elseimg {
   height: 290px;
   overflow: hidden;
+  background-image: url("https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2F0f9fcafc91fba37048f075319220261f54ae977e16686-tahVyj_fw658&refer=http%3A%2F%2Fhbimg.b0.upaiyun.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1622209517&t=a92fc822adf8929b672b9a680cfdc92e");
+  background-size: 100%;
+  background-position: 0 -55PX;
 }
 .elsecart .elseimg img{
   padding-left: 40px;

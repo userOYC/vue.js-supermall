@@ -49,28 +49,26 @@ export default {
       this.iteminfo.checked = !this.iteminfo.checked
     },
     decrement(){ //数量减一
-    if(this.iteminfo.count = 1) {
-      this.$dialog
-          .confirm({
-            title: "温馨提示",
-            message: "是否删除该商品?"
-          })
-          .then(() => {
-            this.$toast({
-              type: "success",
-              message: `删除成功`,
-              forbidClick: true,
-              duration: 1200
-            });
-            // 清除选中商品
-            setTimeout(() => {
-              this.$store.commit("removecartlist")
-              this.$dialog.close
-            }, 500);
-          })
-          .catch(err => err);
+    if(this.iteminfo.count !== 1) {
+       this.iteminfo.count--
+    } else {
+        this.$dialog.confirm({
+        title: "温馨提示",
+        message: "是否删除该商品?"
+      }).then(() => {
+          this.$toast({
+            type: "success",
+            message: `删除成功`,
+            forbidClick: true,
+            duration: 1200,
+        });
+        setTimeout(() => {// 清除选中商品
+          this.$store.commit("removecartlist")
+          this.$dialog.close
+        }, 500);
+      }).catch(err => console.log(err));
     }
-      this.iteminfo.count--
+      
     }, 
     pulsone(){ //数量加一
       this.iteminfo.count++
